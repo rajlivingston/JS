@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: blueviolet;
+    }
+    h1{
+        color: red;
+        background-color: aqua;
+    }
+</style>
+<body>
+    <h1 class="main">Area</h1>
+    <h1 class="main">Area</h1>
+    <script>
+        var l = parseInt(prompt("Enter l = "));
+        var b = parseInt(prompt("Enter b = "));
+        var rect = l*b;
+        var x = document.getElementsByClassName("main");
+        x[0].innerHTML = rect;
+    </script>
+</body>
+</html>

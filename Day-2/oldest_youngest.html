@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var age_1 = parseInt(prompt("Enter age_1 = "));
+        var age_2 = parseInt(prompt("Enter age_2 = "));
+        var age_3 = parseInt(prompt("Enter age_3 = "));
+        if((age_1>age_2)&&(age_1>age_3)){
+            document.write("age_1 is oldest "); 
+            
+            if(age_3>age_2){
+                document.write("age_2 is youngest");
+            }
+            else{
+                document.write("age_3 is youngest");
+            }
+        }
+        else if(age_2>age_3){
+            document.write("age_2 is oldest");
+            if(age_1<age_3){
+                document.write("age_1 is youngest");
+            }
+            else{
+                document.write("age_3 is youngest");
+            }
+        }
+        else{
+            document.write("age_3 is oldest");
+            if(age_1<age_2){
+                document.write("age_1 is youngest");
+            }
+            else{
+                document.write("age_2 is youngest");
+            }
+
+        }
+    </script>
+</body>
+</html>

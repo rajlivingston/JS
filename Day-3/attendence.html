@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var totalAttendence = parseInt(prompt("Enter total no. of Attendence"));
+        var totalMarks = parseInt(prompt("Enter total marks = "));
+        var marksObtain = parseInt(prompt("Enter your marks"));
+        var attendenceGot = parseInt(prompt("Enter attendence you got = "));
+        var attendencePercentage = (attendenceGot/totalAttendence)*100;
+        var marksPercentage = (marksObtain/totalMarks)*100;
+        
+        if(marksPercentage >= 75){
+            document.write("Eligible to attend the exam");
+        }
+        else{
+            if(attendencePercentage>=80){
+                document.write("Eligible to attend the exam");
+            }
+            else{
+                document.write(" Not eligible to attend the exam");
+
+            }
+        }
+    </script>
+</body>
+</html>

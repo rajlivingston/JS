@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var age = parseInt(prompt("Enter your age = "));
+        var res = prompt("Enter your residence = ");
+        if(age>=18){
+            if(age>=25){
+                if((res=="indian")){
+                    document.write("Eligible for voting and participating as a candidate")
+                }
+                else{
+                    document.write("Eligible for voting only")
+                }
+            }
+            else{
+                document.write("Eligible for voting only")
+            }
+        }
+        else{
+            document.write("Not eligible for voting")
+        }
+    </script>
+</body>
+</html>

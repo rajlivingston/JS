@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    input{
+        padding: 10px 15px;
+        margin-bottom: 8px;
+    }
+
+    button{
+        padding: 10px 15px;
+        color: white;
+        background-color: blueviolet;
+        border: none;
+    }
+</style>
+<body>
+    <h1>Simple Calculator</h1>
+    <input type="number"  name="x" id="x">
+    <input type="number" name="y" id="y">
+    <p id="output"></p>
+    <button onclick="add()">+</button>
+    <button onclick="sub()">-</button>
+    <button onclick="multi()">*</button>
+    <button onclick="divide()">/</button>
+    <button onclick="mod()">%</button>
+    <button onclick="pow()">^</button>
+    <button onclick="exp()">Exp</button>
+    <button onclick="sqrt()">Sqrt</button>
+<script>
+    function add(){
+        var x = parseInt(document.getElementById("x").value);
+        var y = parseInt(document.getElementById("y").value);
+        var z = x+y;
+        document.getElementById("output").innerHTML=z;
+    }
+
+    function sub(){
+        var x = parseInt(document.getElementById("x").value);
+        var y = parseInt(document.getElementById("y").value);
+        var z = x-y;
+        document.getElementById("output").innerHTML=z;
+    }
+
+    function multi(){
+        var x = parseInt(document.getElementById("x").value);
+        var y = parseInt(document.getElementById("y").value);
+        var z = x*y;
+        document.getElementById("output").innerHTML=z;
+    }
+
+    function divide(){
+        var x = parseInt(document.getElementById("x").value);
+        var y = parseInt(document.getElementById("y").value);
+        var z = x/y;
+        document.getElementById("output").innerHTML=z;
+    }
+
+    function mod(){
+        var x = parseInt(document.getElementById("x").value);
+        var y = parseInt(document.getElementById("y").value);
+        var z = x%y;
+        document.getElementById("output").innerHTML=z;
+    }
+
+    function pow(){
+        var x = parseInt(document.getElementById("x").value);
+        var y = parseInt(document.getElementById("y").value);
+        var z = Math.pow(x,y);
+        document.getElementById("output").innerHTML=z;
+    }
+
+    function exp(){
+        var x = parseInt(document.getElementById("x").value);
+        var y = parseInt(document.getElementById("y").value);
+        var z = Math.exp(x); 
+        document.getElementById("output").innerHTML=z;
+    }
+
+    function sqrt(){
+        var x = parseInt(document.getElementById("x").value);
+        var y = parseInt(document.getElementById("y").value);
+        var z = Math.sqrt(x);
+        document.getElementById("output").innerHTML=z;
+    }
+</script>
+</body>
+</html>
