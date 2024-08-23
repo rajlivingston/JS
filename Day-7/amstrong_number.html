@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var x = parseInt(prompt("Enter a number ="));
+        var y = parseInt(prompt("Enter a number ="));
+
+        for (var i = x; i <= y; i++) {
+            var amg = 0;
+            var temp = i;
+            var len = i.toString().length;
+
+            while (temp > 0) {
+                var d = temp % 10;
+                amg += Math.pow(d, len);
+                temp = Math.floor(temp / 10);
+
+
+            }
+            if (amg == i) {
+                document.write(amg + "<br>")
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
