@@ -7,7 +7,7 @@
 </head>
 <body>
     <script>
-        for(var i= 1; i<500 ; i++){
+        for(var i= 1; i<=500 ; i++){
             var temp = i;
             var len = temp.toString().length;
             var sum = 0;
@@ -15,11 +15,10 @@
                 var d = temp%10;
                 sum += Math.pow(d,len);
                 temp = Math.floor(temp/10);
-
+            }
                 if(sum==i){
                     document.write(sum+"<br>");
                 }
-            }
         }
     </script>
 </body>
