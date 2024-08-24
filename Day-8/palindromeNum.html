@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var x = parseInt(prompt("Enter x = "));
+        var y = parseInt(prompt("Enter y = "));
+
+
+        for (var i = x; i <= y; i++) {
+            var temp = i;
+            var rev = 0;
+
+            while (temp > 0) {
+                var d = temp % 10;
+
+                rev = (rev * 10) + d;
+                temp = Math.floor(temp / 10);
+                
+
+            }
+            
+            if(rev==i){
+                    document.write(rev+"<br>");
+                }
+
+
+
+        }
+
+
+    </script>
+</body>
+
+</html>
