@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var i = 0;
+        var divisibleBy5 = 0;
+        var evenSum = 0;
+        var sumothers = 0;
+        while (i < 10) {
+
+            var num = parseInt(prompt("Enter a number = "));
+            
+            switch (true) {
+                case (num % 5 == 0):
+                    divisibleBy5 += num;
+                    break
+                case (num % 2 == 0):
+                    evenSum += num;
+                    break
+                default:
+                    sumothers += num;
+                    break
+
+            }
+
+            i++
+        }
+        document.write(`Divisible by 5 = ${divisibleBy5}<br>`);
+        document.write(`Even sum = ${evenSum} <br>`);
+        document.write(`Other sum = ${sumothers} <br>`);
+
+    </script>
+</body>
+
+</html>

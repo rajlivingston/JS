@@ -7,16 +7,18 @@
 </head>
 <body>
     <script>
-        var num_1 = parseInt(prompt("Enter a num_1"));
-        var num_2 = parseInt(prompt("Enter a num_2"));
-        var num_3 = parseInt(prompt("Enter a num_3"));
-        var num_4 = parseInt(prompt("Enter a num_4"));
-        var num_5 = parseInt(prompt("Enter a num_5"));
-        var num_6 = parseInt(prompt("Enter a num_6"));
-        var num_7 = parseInt(prompt("Enter a num_7"));
-        var num_8 = parseInt(prompt("Enter a num_8"));
-        var num_9 = parseInt(prompt("Enter a num_9"));
-        var num_10 = parseInt(prompt("Enter a num_10"));
+       var sum = 0;
+       var i =0;
+       while(i<10){
+        var num= parseInt(prompt("Enter a number = "));
+
+        if(num % 5 == 0 && num % 2 != 0){
+            sum += num;
+
+        }
+        i++
+       }
+        document.write(`sum of the numbers = ${sum}`)
     </script>
 </body>
 </html>

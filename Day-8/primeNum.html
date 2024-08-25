@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        var num = parseInt(prompt("Enter a number"));
-        var prime = true;
+         var x = parseInt(prompt("Enter an initial value = "));
+        var y = parseInt(prompt("Enter a final value = "));
 
-        if(num<=1){
-            prime = false;
-        }
+        for (var i = x; i <= y; i++) {
+            var Prime = true;
 
-        else{
-            for( var i=2; i<=num ; i++){
-                prime=false;
-                
+
+            for (var j = 2; j <= Math.sqrt(i); j++) {
+                if (i % j == 0) {
+                    Prime = false;
+                    break;
+                }
+            }
+
+            if (Prime) {
+                document.write(i + "<br>");
             }
         }
-
-        document.write(prime?num+"it is a prime":num+"it is not a prime");
     </script>
 </body>
+
 </html>
