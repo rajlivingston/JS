@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function amgNumber(x,y){
+            for ( x; x <= y; x++) {
+            var amg = 0;
+            var temp = x;
+            var len = x.toString().length;
+
+            while (temp > 0) {
+                var d = temp % 10;
+                amg += Math.pow(d, len);
+                temp = Math.floor(temp / 10);
+            }
+            if (amg == x) {
+                document.write(amg + "<br>");
+            }
+        }
+        
+    }
+
+    x = parseInt(prompt("Enter x = "));
+    y = parseInt(prompt("Enter y = "));
+
+    amgNumber(x,y)
+    
+
+    </script>
+</body>
+</html>
