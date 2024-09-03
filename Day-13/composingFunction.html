@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+         const compose = (...fns) => (...args) =>
+            fns.reduceRight((acc, fn) => Array.isArray(acc) ? fn(...acc) : fn(acc), args);
+
+        const add = (a, b) =>{a + b;
+            document.write(a+b);
+        } 
+        const multiply = (sum, factor) => {
+            sum * factor;
+            document.write(sum * factor);
+        }
+
+        const subtract = (product, value) => product - value;
+
+        const composedFunction = compose(subtract, multiply, add);
+
+        const result = composedFunction(2, 3, 4, 5);
+        document.write(result); // Output: 15
+
+    </script>
+</body>
+
+</html>
