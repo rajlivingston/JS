@@ -7,5 +7,5 @@ const data = {
     ...data,
     [key]: { ...data[key], country: 'Fictionland' }
   };
-  console.log(updated); 
+  console.log(updated);
   
