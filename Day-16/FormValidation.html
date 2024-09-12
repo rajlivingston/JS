@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Operations with Object</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .table thead th {
+            background-color: #343a40;
+            color: white;
+        }
+        .table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .btn {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="text-center my-4">STUDENT MANAGEMENT SYSTEM -(2024-2025)</h1>
+        <form id="user-form">
+
+        <div class="form-group">
+            <label for="userId">User ID:</label>
+            <input type="text" class="form-control" id="userId">
+        </div>
+        <div class="form-group">
+            <label for="userName">Name:</label>
+            <input type="text" class="form-control" id="userName">
+        </div>
+        <div class="form-group">
+            <label for="userAge">Age:</label>
+            <input type="text" class="form-control" id="userAge">
+        </div>
+        <div class="form-group">
+            <label for="userEmail">Email:</label>
+            <input type="text" class="form-control" id="userEmail">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Create User</button>
+    </form>
+        <div id="user-list" class="mt-5">
+            <h2>User List</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let users = {};
+
+        function renderUsers() {
+            const userTableBody = document.getElementById('userTableBody');
+            userTableBody.innerHTML = '';  // Clear previous content
+
+            for (let id in users) {
+                const user = users[id];
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${id}</td>
+                    <td>${user.name}</td>
+                    <td>${user.age}</td>
+                    <td>${user.email}</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm" onclick="updateUser(${id})">Update</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteUser(${id})">Delete</button>
+                    </td>
+                `;
+                userTableBody.appendChild(row);
+            }
+        }
+
+        document.getElementById("user-form").addEventListener("submit" , function(event) {
+            event.preventDefault();
+            const id = document.getElementById('userId').value;
+            const name = document.getElementById('userName').value;
+            const age = document.getElementById('userAge').value;
+            const email = document.getElementById('userEmail').value;
+
+            if (id && name && age && email) {
+                users[id] = { name, age, email };
+                renderUsers();
+                console.log(users);
+            }
+        
+        document.getElementById("user-form").reset();
+        }
+    );
+        function updateUser(id) {
+            const name = prompt("Enter new name:", users[id].name);
+            const age = prompt("Enter new age:", users[id].age);
+            const email = prompt("Enter new email:", users[id].email);
+
+            if (name !== null && age !== null && email !== null) {
+                users[id] = { name, age, email };
+                renderUsers();
+            }
+        }
+
+        function deleteUser(id) {
+            delete users[id];
+            renderUsers();
+        }
+    </script>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+</script>
+</body>
+</html>

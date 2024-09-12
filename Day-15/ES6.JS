@@ -8,6 +8,6 @@ class person{
         console.log("Hello" +this.name);
     };
 }
-let person1 = new person("Raj Livingston",22);
+let person1 = new person(" Raj Livingston",22);
 console.log(person1.name);
 person1.greet();

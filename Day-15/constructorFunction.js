@@ -1,4 +1,4 @@
-function person (name,age,hello) {
+function person (name,age) {
 
     this.name = name;
     this.age = age;

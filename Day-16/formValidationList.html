@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .main {
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+    }
+    
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    button {
+        padding: 8px 10px;
+        border: none;
+    }
+</style>
+<body>
+    <div class="main">
+        <h2>Valid Form</h2>
+
+        <form id="user-form" name="validForm">
+
+            <div>
+                <label for="userName">User Name</label>
+                <input type="text" name="userName" id="userName" required>
+            </div>
+             
+            <div>
+                <label for="email">Email ID</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+
+            <div>
+                <label for="phone">Phone</label>
+                <input type="text" name="phone" size="10" id="phone" required>
+            </div>
+
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+
+            <div>
+                <label for="re-password">Confirm Password</label>
+                <input type="password" name="re-password" id="re-password" required>
+            </div>
+
+            <div class="buttons">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+
+        <h2>User List</h2>
+        <ol id="userList"></ol>
+    </div>
+
+    <script>
+        let users = {}; 
+
+    
+        function reload() {
+            const userList = document.getElementById('userList');
+            userList.innerHTML = ''; 
+
+            for (let id in users) {
+                const user = users[id];
+                const row = document.createElement('li');
+                row.innerHTML = `
+                    <span>User ID: ${id}</span>
+                    <ul>
+                        <li>Name: ${user.name}</li>
+                        <li>Phone: ${user.phone}</li>
+                        <li>Email: ${user.email}</li>
+                    </ul>
+                    <button style="yellow" onclick="updateUser('${id}')">Update</button>
+                    <button onclick="deleteUser('${id}')">Delete</button>
+                `;
+                userList.appendChild(row);
+            }
+        }
+
+        
+        document.getElementById("user-form").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            const id = document.getElementById('userName').value;
+            const name = document.getElementById('userName').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+
+            
+            if (id && name && phone && email) {
+                users[id] = { name, phone, email };
+                reload(); 
+                console.log(users);
+            }
+
+            document.getElementById("user-form").reset(); 
+        });
+
+        
+        function updateUser(id) {
+            const name = prompt("Enter new name:", users[id].name);
+            const phone = prompt("Enter new phone:", users[id].phone);
+            const email = prompt("Enter new email:", users[id].email);
+
+            if (name !== null && phone !== null && email !== null) {
+                users[id] = { name, phone, email };
+                reload(); 
+            }
+        }
+
+        
+        function deleteUser(id) {
+            delete users[id]; 
+            reload(); 
+        }
+    </script>
+</body>
+</html>
