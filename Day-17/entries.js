@@ -5,4 +5,3 @@ const iterator = array.entries();
 for (let [index, element] of iterator) {
     console.log(index, element);
 }
-

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage CRUD</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            color: #007bff;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            outline: none;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        .add-btn {
+            background-color: #28a745;
+            color: #fff;
+        }
+        .update-btn {
+            background-color: #ffc107;
+            color: #fff;
+        }
+        .delete-btn {
+            background-color: #dc3545;
+            color: #fff;
+        }
+        .clear-btn {
+            background-color: #6c757d;
+            color: #fff;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>LocalStorage CRUD</h2>
+        <input type="text" id="item-input" placeholder="Enter item">
+        <button class="add-btn" onclick="addItem()">Add Item</button>
+        <button class="update-btn" onclick="updateItem()">Update Item</button>
+        <button class="delete-btn" onclick="deleteItem()">Delete Item</button>
+        <button class="clear-btn" onclick="clearItems()">Clear All</button>
+        <ul id="item-list"></ul>
+    </div>
+
+    <script>
+        const input = document.getElementById('item-input');
+        const itemList = document.getElementById('item-list');
+        let selectedIndex = -1;
+
+        // Function to add item to localStorage
+        function addItem() {
+            const item = input.value;
+            if (item) {
+                const items = getItems();
+                items.push(item);
+                localStorage.setItem('items', JSON.stringify(items));
+                renderItems();
+                input.value = '';
+            }
+        }
+
+        // Function to update selected item
+        function updateItem() {
+            if (selectedIndex !== -1) {
+                const items = getItems();
+                items[selectedIndex] = input.value;
+                localStorage.setItem('items', JSON.stringify(items));
+                renderItems();
+                input.value = '';
+                selectedIndex = -1;
+            }
+        }
+
+        // Function to delete selected item
+        function deleteItem() {
+            if (selectedIndex !== -1) {
+                const items = getItems();
+                items.splice(selectedIndex, 1);
+                localStorage.setItem('items', JSON.stringify(items));
+                renderItems();
+                input.value = '';
+                selectedIndex = -1;
+            }
+        }
+
+        // Function to clear all items
+        function clearItems() {
+            localStorage.removeItem('items');
+            renderItems();
+        }
+
+        // Function to get items from localStorage
+        function getItems() {
+            return JSON.parse(localStorage.getItem('items')) || [];
+        }
+
+        // Function to render items in the list
+        function renderItems() {
+            itemList.innerHTML = '';
+            const items = getItems();
+            items.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                li.onclick = function () {
+                    input.value = item;
+                    selectedIndex = index;
+                };
+                itemList.appendChild(li);
+            });
+        }
+
+        // Initial render
+        renderItems();
+
+        //conver json string into javascript object
+        //const storedItems = JSON.parse(localStorage.getItem('items'));
+        //console.log(storedItems); // Output: ["Apple", "Banana", "Cherry"]
+
+        //const items = [ "Apple", "Banana", "Cherry" ];  // A JavaScript array
+
+        // Convert the array to a JSON string and store it in localStorage
+        //localStorage.setItem('items', JSON.stringify(items)); 
+    
+    </script>
+</body>
+</html>
